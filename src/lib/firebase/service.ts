@@ -1,4 +1,4 @@
-import {collection, getDocs, getFirestore, doc, query, where, addDoc} from 'firebase/firestore';
+import {collection, getDocs, getFirestore, doc, query, where, addDoc, getDoc} from 'firebase/firestore';
 import app from './init';
 import bcrypt from 'bcrypt';
 const firestore = getFirestore(app);
@@ -17,9 +17,9 @@ export async function retrieveData(collectionName: string) {
 }
 
 export async function retrieveDataById(collectionName: string, id: string) {
-   const snapshot = await getDocs(doc(firestore, collectionName, id));
-   const data = snapshot.data();
-   return data;
+  const docRef = doc(firestore, collectionName, id);
+  const snapshot = await getDoc(docRef);
+  return snapshot.data();
 }
 
 export async function signUp(userData: {
