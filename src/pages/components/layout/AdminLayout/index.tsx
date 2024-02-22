@@ -15,6 +15,11 @@ const listSiderbarItems = [
     title: "Products",
     url: "/admin/products",
     icon: "bxs-package"
+  },
+  {
+    title: "Users",
+    url: "/admin/users",
+    icon: "bxs-group"
   }
 ]
 
@@ -25,7 +30,9 @@ const AdminLayout = (props: Proptype) => {
   return (
     <div className={styles.admin}>
       <Sidebar lists={listSiderbarItems} />
+      <div className={styles.admin__main}>
       {children}
+      </div>
     </div>
   );
 }
