@@ -19,7 +19,7 @@ const Modal = ({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     }
-  }, [])
+  }, [onClose])
   return (
     <div className={styles.modal}>
       <div className={styles.modal__main} ref={ref}>{children}</div>
